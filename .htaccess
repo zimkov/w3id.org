@@ -1,7 +1,7 @@
-# w3id.org global rewrites
-
-Options +FollowSymLinks
-RewriteEngine on
-
-# redirect here vs in a UN directory due to case insensitive file systems issue
-RewriteRule ^UN(.*)$ /un$1
+RewriteCond %{HTTP_ACCEPT} !application/rdf\+xml.*(text/html|application/xhtml\+xml)
+RewriteCond %{HTTP_ACCEPT} text/html [OR]
+RewriteCond %{HTTP_ACCEPT} application/xhtml\+xml [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mozilla/.*
+RewriteRule ^system-of-fire-protection$ https://zimkov.github.io/Systems-of-fire-protection.github.io/OnToology/SFPv4.owl/documentation/index-en.html [R=303,L]
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^system-of-fire-protection$ https://raw.githubusercontent.com/zimkov/Systems-of-fire-protection.github.io/main/ggg.owl [R=303,L]
